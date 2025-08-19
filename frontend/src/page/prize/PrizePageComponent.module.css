@@ -24,22 +24,16 @@ main h3 {
 }
 
 body {
-  width: 100%;
   background-color: var(--bcolor);
   padding: 0;
   margin: 0;
-  display: -webkit-flex;
-  -webkit-align-items: center;
-  -webkit-justify-content: center;
-  -webkit-flex-direction: column;
   overflow-x: hidden;
 }
 
 .header {
   padding: 20px;
-  width: 100%;
   height: auto;
-  background: url(../images/prize-bg.png);
+  background: url(../../images/prize-bg.png);
   background-size: cover;
   background-position: center center;
   display: -webkit-flex;
@@ -109,13 +103,14 @@ body {
 }
 .header__timer {
   display: flex;
+  justify-content: center;
   gap: 5px;
 }
-.header__timer-time {
+.header__timer_time {
   display: flex;
   gap: 5px;
 }
-.header__timer-division {
+.header__timer_division {
   display: -webkit-flex;
   -webkit-align-items: center;
   -webkit-justify-content: center;
@@ -124,23 +119,24 @@ body {
   color: white;
   font-size: 20px;
 }
-.header__timer-block {
+.header__timer_block {
   background-color: #C5901E;
   font-family: "Inter", sans-serif;
   color: white;
   font-size: 20px;
   padding: 5px;
   height: 20px;
+  width: 13px;
   display: -webkit-flex;
   -webkit-align-items: center;
   -webkit-justify-content: center;
   -webkit-flex-direction: column;
 }
-.header__timer-block:nth-child(n) {
+.header__timer_block:nth-child(n) {
   border-top-right-radius: var(--border-time);
   border-bottom-right-radius: var(--border-time);
 }
-.header__timer-block:nth-child(2n+1) {
+.header__timer_block:nth-child(2n+1) {
   border-radius: 0;
   border-top-left-radius: var(--border-time);
   border-bottom-left-radius: var(--border-time);
@@ -182,7 +178,7 @@ body {
   padding-bottom: 90px;
   gap: 10px;
 }
-.main .container .tg-info {
+.main .container .tg_info {
   color: white;
 }
 .main .container .user {
@@ -209,12 +205,12 @@ body {
   -webkit-flex-direction: column;
   gap: 5px;
 }
-.main .container .user__info-names {
+.main .container .user__info_names {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.main .container .user__info-names h3 {
+.main .container .user__info_names h3 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -224,7 +220,7 @@ body {
   font-weight: 500;
   /* unicode-bidi: isolate; */
 }
-.main .container .user__info-names .its-you-block {
+.main .container .user__info_names .its_you_block {
   display: flex;
   align-items: center;
   opacity: 1;
