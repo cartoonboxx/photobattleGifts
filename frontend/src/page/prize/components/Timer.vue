@@ -31,7 +31,7 @@ export default {
     // длительность таймера в секундах
     duration: {
       type: Number,
-      default: 60 * 11, // 3 часа
+      default: 2, // 3 часа
     },
   },
   data() {
