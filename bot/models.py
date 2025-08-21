@@ -1,7 +1,9 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, select
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.asyncio import AsyncSession
+
 from db import Base
+
 
 class Prize(Base):
     __tablename__ = "prizes"
@@ -26,15 +28,35 @@ class User(Base):
     prize = relationship("Prize", back_populates="users")
 
 
-async def get_all_prizes(session: AsyncSession):
-    """Вернуть все призы"""
-    stmt = select(Prize)
-    result = await session.scalars(stmt)
-    return result.all()
+# -------- CRUD-функции --------
 
-
+# Получить всех пользователей
 async def get_all_users(session: AsyncSession):
-    """Вернуть всех пользователей"""
-    stmt = select(User)
-    result = await session.scalars(stmt)
-    return result.all()
+    result = await session.execute(select(User))
+    return result.scalars().all()
+
+# Получить все призы
+async def get_all_prizes(session: AsyncSession):
+    result = await session.execute(select(Prize))
+    return result.scalars().all()
+
+# Добавить пользователя
+async def add_user(session: AsyncSession, telegram_id: int, username: str = None, prize_id: int = None):
+    user = User(telegram_id=telegram_id, username=username, prize_id=prize_id)
+    session.add(user)
+    await session.commit()
+    await session.refresh(user)
+    return user
+
+# Добавить приз
+async def add_prize(session: AsyncSession, prize_size: str, channel_link: str, winners_count: int, duration_minutes: int):
+    prize = Prize(
+        prize_size=prize_size,
+        channel_link=channel_link,
+        winners_count=winners_count,
+        duration_minutes=duration_minutes,
+    )
+    session.add(prize)
+    await session.commit()
+    await session.refresh(prize)
+    return prize
