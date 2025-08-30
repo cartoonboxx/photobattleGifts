@@ -1,5 +1,6 @@
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean, select
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean, select, BigInteger
+from sqlalchemy.dialects.postgresql import ARRAY
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -18,6 +19,7 @@ class Prize(Base):
     created = Column(DateTime, default=datetime.utcnow, nullable=False)
     telegram_post_id = Column(Integer, nullable=False)
     isFinished = Column(Boolean, default=False, nullable=False)
+    channels = Column(ARRAY(BigInteger), nullable=False, default=[])
 
     users = relationship("User", back_populates="prize", cascade="all, delete-orphan")
 
@@ -44,7 +46,7 @@ async def get_prize_by_id(session: AsyncSession, prize_id: int):
     return prize
 
 
-async def add_prize(session: AsyncSession, prize_size: int, channel_link: str, winners_count: int, duration_minutes: int, telegram_post_id: str | int):
+async def add_prize(session: AsyncSession, prize_size: int, channel_link: str, winners_count: int, duration_minutes: int, telegram_post_id: str | int, channels):
     prize = Prize(
         prize_size=prize_size,
         channel_link=channel_link,
@@ -52,6 +54,7 @@ async def add_prize(session: AsyncSession, prize_size: int, channel_link: str, w
         duration_minutes=duration_minutes,
         telegram_post_id=telegram_post_id,
         created=add_minutes(0),
+        channels=channels,
         isFinished=False
     )
     session.add(prize)

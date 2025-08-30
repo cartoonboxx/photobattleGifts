@@ -34,6 +34,7 @@ async def contest_watcher(bot: Bot, session_maker):
                         except Exception as e:
                             print(f"[ERROR] Ошибка при отправке сообщения: {e}")
 
+
         except Exception as e:
             print(f"[ERROR] contest_watcher: {e}")
 
