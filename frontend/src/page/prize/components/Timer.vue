@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import style from "../PrizePageComponent.module.css";
+import style from "../PrizePageComponent.module.scss";
 
 export default {
   name: "Timer",
@@ -31,7 +31,7 @@ export default {
     // длительность таймера в секундах
     duration: {
       type: Number,
-      default: 2, // 3 часа
+      default: 1200, // 3 часа
     },
   },
   data() {

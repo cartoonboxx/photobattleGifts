@@ -13,37 +13,37 @@
       <img src="@/images/gift.png" />
     </picture>
     <div>
-      <h1 :class="style.header__text">
-        Раздача Telegram Stars<br />321 призов по 123 Telegram Stars
-      </h1>
+      <h1 :class="style.header__text">Раздача Telegram Stars</h1>
+      <p>10 призов по 1000 Telegram Stars</p>
       <Timer />
-      <p :class="style.header__paragraph">
+      <p>
         Будьте онлайн на этой странице в,<br />чтобы принять участие в раздаче
       </p>
     </div>
-
-    <h1 :class="style.header__text">
-      Раздача Telegram Stars<br />Встречайте победителей!
-    </h1>
-    <p :class="style.header__paragraph">Розыгрыш завершился в</p>
   </header>
   <main :class="style.main">
+    <h3>Участников онлайн: 1120</h3>
+    <span>Ваша позиция:</span>
+    <p>Приглашайте друзей, чтобы увеличить шансы</p>
+    <UserCard />
     <a href="https://google.com" :class="style.invite_users"
       >Пригласить друзей</a
     >
   </main>
 </template>
 
-<script>
-import style from "./PrizePageComponent.module.css";
+<script lang="ts">
+import style from "./PrizePageComponent.module.scss";
 import Timer from "@/page/prize/components/Timer.vue";
+import { defineComponent } from "vue";
+import UserCard from "@/page/prize/components/UserCard/UserCard.vue";
 
-export default {
-  components: { Timer },
+export default defineComponent({
+  components: { UserCard, Timer },
   data() {
     return {
       style,
     };
   },
-};
+});
 </script>

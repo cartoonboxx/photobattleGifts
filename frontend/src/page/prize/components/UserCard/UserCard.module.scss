@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.userCard {
+  display: flex;
+  align-items: center;
+  background-color: red;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 15px;
+
+  img {
+    background-color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+
+  }
+
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: 0;
+      font-weight: 800;
+      font-family: "Open Sans", sans-serif ;
+      color: var(--tg-theme-text-color);
+    }
+
+    p {
+      margin: 0;
+      color: var(--tg-theme-text-color);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      img {
+        background-color: transparent;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-radius: 0;
+    }
+  }
+}
