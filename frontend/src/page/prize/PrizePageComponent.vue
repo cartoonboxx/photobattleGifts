@@ -26,6 +26,8 @@
     <span>Ваша позиция:</span>
     <p>Приглашайте друзей, чтобы увеличить шансы</p>
     <UserCard />
+    <h2>Топ 10 лидеров</h2>
+    <UserList :users="[1, 2, 3, 4, 5]" />
     <a href="https://google.com" :class="style.invite_users"
       >Пригласить друзей</a
     >
@@ -37,9 +39,10 @@ import style from "./PrizePageComponent.module.scss";
 import Timer from "@/page/prize/components/Timer.vue";
 import { defineComponent } from "vue";
 import UserCard from "@/page/prize/components/UserCard/UserCard.vue";
+import UserList from "@/page/prize/components/UserList/UserList.vue";
 
 export default defineComponent({
-  components: { UserCard, Timer },
+  components: { UserList, UserCard, Timer },
   data() {
     return {
       style,

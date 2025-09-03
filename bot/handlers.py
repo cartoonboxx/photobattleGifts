@@ -46,7 +46,10 @@ async def startHandler(message: Message, command: CommandStart, bot: Bot):
                                      reply_markup=kb.as_markup())
             else:
                 subKb = InlineKeyboardBuilder()
-                subKb.button(text='Участвовать в розыгрыше', url='https://google.com')
+                subKb.button(
+                    text='Участвовать в розыгрыше',
+                    web_app=WebAppInfo(url=f'https://{HOST}/prize/{compet_id}')
+                )
                 await message.answer('Для участия нажмите кнопку', reply_markup=subKb.as_markup())
 
         return
