@@ -27,10 +27,12 @@
     <p>Приглашайте друзей, чтобы увеличить шансы</p>
     <UserCard />
     <h2>Топ 10 лидеров</h2>
-    <UserList :users="[1, 2, 3, 4, 5]" />
-    <a href="https://google.com" :class="style.invite_users"
-      >Пригласить друзей</a
-    >
+    <UserList :users="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]" />
+    <div :class="style.inviteWrapper">
+      <a href="https://google.com" :class="style.invite_users"
+        >Пригласить друзей</a
+      >
+    </div>
   </main>
 </template>
 

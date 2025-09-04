@@ -7,8 +7,6 @@
       :user="user"
       :class="style.userCard"
     />
-
-    <!-- плашка fixed внизу экрана -->
     <div
       v-if="!showAll && hiddenCount > 0"
       :class="style.showMore"
@@ -37,7 +35,7 @@ export default defineComponent({
     // опционально: можно изменить число видимых карточек (по умолчанию 2)
     initialVisible: {
       type: Number as PropType<number>,
-      default: 2,
+      default: 10,
     },
   },
   data() {

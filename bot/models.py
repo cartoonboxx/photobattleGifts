@@ -23,8 +23,6 @@ class Prize(Base):
 
     users = relationship("User", back_populates="prize", cascade="all, delete-orphan")
 
-
-
 class User(Base):
     __tablename__ = "users"
     __table_args__ = {'extend_existing': True}
