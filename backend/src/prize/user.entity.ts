@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 import { Prize } from './prize.entity';
 
 @Entity('users')
@@ -13,5 +19,6 @@ export class User {
   username: string;
 
   @ManyToOne(() => Prize, (prize) => prize.users, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'prize_id' })
   prize: Prize;
 }
