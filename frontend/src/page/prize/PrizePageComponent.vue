@@ -47,6 +47,7 @@ import UserCard from "@/page/prize/components/UserCard/UserCard.vue";
 import UserList from "@/page/prize/components/UserList/UserList.vue";
 import http from "@/httpService";
 import { PrizeObj } from "@/page/prize/prize.types";
+import { useWebApp } from "vue-tg";
 
 export default defineComponent({
   components: { UserList, UserCard, Timer },
@@ -57,12 +58,13 @@ export default defineComponent({
       currentUserInfo: {},
       style,
       http,
+      initDataUnsafe: useWebApp(),
     };
   },
   async mounted() {
     const id = this.$route.params.id;
     // console.log(this.prizeData);
-    console.log(window.Telegram.WebApp.initData);
+    console.log(this.initDataUnsafe);
     this.prizeData = await http.getPrize(id);
     this.users = [];
     console.log(this.prizeData);
