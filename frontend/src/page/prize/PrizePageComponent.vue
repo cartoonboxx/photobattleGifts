@@ -62,9 +62,9 @@ export default defineComponent({
   async mounted() {
     const id = this.$route.params.id;
     // console.log(this.prizeData);
-    console.log(window?.Telegram?.WebApp?.initData);
+    console.log(window.Telegram.WebApp.initData);
     this.prizeData = await http.getPrize(id);
-    this.users = await http.getUsersByPrize(id);
+    this.users = [];
     console.log(this.prizeData);
   },
 });
